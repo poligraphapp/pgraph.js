@@ -135,6 +135,7 @@
 //    }
     $.getJSON('../data/data.json', function(r) {
       var v;
+      r = r.slice(0,99);
       var count = 0;
       for(i in r) {
         count++;
