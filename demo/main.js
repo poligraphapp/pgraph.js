@@ -135,9 +135,14 @@
 //    }
     $.getJSON('../data/data.json', function(r) {
       var v;
+      var count = 0;
       for(i in r) {
+        count++;
         v = r[i];
         sys.addEdge(v.src, v.dest);
+        if(count > 100) {
+          break;
+        end
       }
     });
 
