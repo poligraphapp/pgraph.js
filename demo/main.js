@@ -130,11 +130,22 @@
     sys.renderer = Renderer("#viewport") // our newly created renderer will have its .init() method called shortly by sys...
 
     // add some nodes to the graph and watch it go...
-    sys.addEdge('a','b')
-    sys.addEdge('a','c')
-    sys.addEdge('a','d')
-    sys.addEdge('a','e')
-    sys.addNode('f', {alone:true, mass:.25})
+//    for (item in IMPORT_DATA) {
+//      sys.addEdge(item[import_data].src, item[import_data].dest, item[import_data].val);
+//    }
+    $.getJSON('../data/data.json', function(r) {
+      var v;
+      for(i in r) {
+        v = r[i];
+        sys.addEdge(v.src, v.dest);
+      }
+    });
+
+//    sys.addEdge('a','b')
+//    sys.addEdge('a','c')
+//    sys.addEdge('a','d')
+//    sys.addEdge('a','e')
+//    sys.addNode('f', {alone:true, mass:.25})
 
     // or, equivalently:
     //
